@@ -1,0 +1,27 @@
+﻿<div style="max-width:480px; margin:24px auto; display:flex; flex-direction:column; gap:24px;">
+
+    @*
+    テキスト入力欄への入力を無効化したい IgbCombo について、FocusScript パラメーターに、
+    wwwroot/igb-combo-readonly.js に定義した "makeReadOnly" スクリプトを指定することで、
+    テキスト入力欄への入力を無効化することができます。
+    *@
+    <IgbCombo Data="_data"
+              DisplayKey="@nameof(Person.Name)"
+              ValueKey="@nameof(Person.Id)"
+              SingleSelect="true"
+              FocusScript="makeReadOnly">
+    </IgbCombo>
+
+</div>
+
+@code
+{
+    private record Person(int Id, string Name);
+
+    private readonly IEnumerable<Person> _data = new Person[]
+    {
+        new(1, "Taro"),
+        new(2, "Hanako"),
+        new(3, "Jiro" ),
+    };
+}
